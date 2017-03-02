@@ -1,0 +1,14 @@
+---
+
+- hosts: artifactory-allin1
+  become: yes
+  vars:
+    mariadb_root_pass: myCustomPass
+    db_root_pass: "{{ mariadb_root_pass }}"
+  roles:
+#    - role: ansible-role-set-resolver
+    - role: shelleg.epel
+#    - role: mariadb
+#    - role: oracle-java
+#      oracle_java_set_as_default: yes
+    - role: artifactory

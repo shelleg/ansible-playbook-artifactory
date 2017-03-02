@@ -1,0 +1,10 @@
+---
+
+- src: ansiblebit.launchpad-ppa-webupd8
+- src: ansiblebit.oracle-java
+  name: oracle-java
+- src: shelleg.epel
+- src: https://github.com/shelleg/ansible-role-mariadb.git
+  name: mariadb
+- src: https://github.com/shelleg/ansible-role-artifactory.git
+  name: artifactory
