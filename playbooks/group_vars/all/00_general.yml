@@ -1,54 +1,31 @@
 ---
-# general vars - everything we might use in context of shelleg
-ssh_port: 22
 
-# domain related
-domain_prefix: shelleg
-domain_suffix: dev
-domain_name: "{{ domain_prefix }}.{{ domain_suffix }}"
-domain: "{{ domain_prefix }}.{{ domain_suffix }}"
-dns_searches:
-  - "{{ domain_name }}"
-dns:
-  primary: 8.8.8.8
-  secondary: 8.8.4.4
+# Artifactory related
+mariadb_artifactory_optimzed: true
 
-# network related
-net_prefix: "172.16.1"
-subnet: '/24'
-network: "{{ net_prefix }}.0/{{ subnet }}"
+artifactory_database_engine: mariadb
+artifactory_db_name: artifactory
+artifactory_db_user: artifactory
+artifactory_db_pass: root
+artifactory_db_host: localhost
+artifactory_db_port: 3306
 
-ca_distribution_certs_dir: "{{ playbook_dir }}/../keys_n_certs"
-pki_cert_dir: /etc/ssl/certs
-pki_key_dir: /etc/ssl/private
+db_root_user: root
+db_root_pass: myCustomPass
 
-###
-# vars below this line are deprecated and are here for backwards compatebility
-###
-shelleg:
-  user: vagrant
-  pass: vagrant
-  ubuntu:
-    box: "bento/ubuntu-16.04"
-  centos:
-    box: "centos/7"
-  net_prefix: "172.16.1"
-  subnet: '/24'
-  network: '172.16.1.0/24'
-  prefix: shelleg
-  ram: 512
-  ram_infra: 1024
-  port: 22
-  vagrant_dir: "{{ playbook_dir }}/../vagrant"
-  ca_distribution_certs_dir: "{{ playbook_dir }}/../keys_n_certs"
-  pki_cert_dir: /etc/pki/tls/certs
-  pki_key_dir: /etc/pki/tls/private
-  domain_prefix: shelleg
-  domain_suffix: dev
-  domain_name: shelleg.dev
-  domain: shelleg.dev
-  dns_searches:
-    - shelleg.dev
-  dns:
-    primary: 8.8.8.8
-    secondary: 8.8.4.4
+mariadb_db_properties:
+  - db_name: "{{ artifactory_db_name }}"
+    db_user: "{{ artifactory_db_user }}"
+    db_pass: "{{ artifactory_db_pass }}"
+    db_priv: '{{ artifactory_db_name }}.*:ALL'
+    db_host: "{{ artifactory_db_host }}"
+    db_state: present
+
+# this is a sample not a rela lisence ;)
+artifactory_lisence: "jb12tcBe1seX6ygwcozB4dBgY0LDP0IWUrKFAkV5ZeJFbZfKFUJO1FnqEjrLud+fBTik5XJ/9hGW
+8zuII0g6Y44qTI0ZOgCwPFIA6Mkv2G0xX3IvzfklWd7BEt5c8AH3xANvu2EVL7YHocBTE8Kizf9P
+QF07lQrL1mhr/B+h7i1ACEkjjyr7Z5XfaQsHdt5C1J7dX78SnZce9vKwbDFVDVTxy4DkzkT3visN
+x1AtsSjrlqy5/ZKmuHRVaJevJ7itgsdVsRW7hTBD/fsdOwxjcD1N1+eaen
+U1p3kwSs87w2py7cLBF6Te/MLSelC5HcVxxgweQK8WGBDmvrpe210Wp7aDkdT3lnZqNZ3bAVKJau
+lJwuIg3rU7AoidC9caULsXi6F81OShWeSm07Iqms6Isdfseq+VFVn6mDtbQ72MD4M97FYi3LSWDi
+H+NiZrntBNJb9nfsKcKatRVL+K0Z7ZnPiqSbLCg5xVI4nyZAQlQ="
