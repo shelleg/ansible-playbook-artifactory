@@ -21,11 +21,18 @@ mariadb_db_properties:
     db_host: "{{ artifactory_db_host }}"
     db_state: present
 
-# this is a sample not a rela lisence ;)
-artifactory_lisence: "jb12tcBe1seX6ygwcozB4dBgY0LDP0IWUrKFAkV5ZeJFbZfKFUJO1FnqEjrLud+fBTik5XJ/9hGW
-8zuII0g6Y44qTI0ZOgCwPFIA6Mkv2G0xX3IvzfklWd7BEt5c8AH3xANvu2EVL7YHocBTE8Kizf9P
-QF07lQrL1mhr/B+h7i1ACEkjjyr7Z5XfaQsHdt5C1J7dX78SnZce9vKwbDFVDVTxy4DkzkT3visN
-x1AtsSjrlqy5/ZKmuHRVaJevJ7itgsdVsRW7hTBD/fsdOwxjcD1N1+eaen
-U1p3kwSs87w2py7cLBF6Te/MLSelC5HcVxxgweQK8WGBDmvrpe210Wp7aDkdT3lnZqNZ3bAVKJau
-lJwuIg3rU7AoidC9caULsXi6F81OShWeSm07Iqms6Isdfseq+VFVn6mDtbQ72MD4M97FYi3LSWDi
-H+NiZrntBNJb9nfsKcKatRVL+K0Z7ZnPiqSbLCg5xVI4nyZAQlQ="
+# this is a sample not a real lisence ;)
+artifactory_lisence: "cHJvZHVjdHM6CiAgYXJ0aWZhY3Rvcnk6CiA(--MY--BOGUS--KEY--)OiBaWGh3YVhKbGN6b2dNakF4Tnkw
+d05DMHdORlF3TnpvMU5Eb3hOeTQwTXpKYU(--MY--BOGUS--KEY--)XUXdZeTFpWmpnMExUUmpPRFV0
+T0RrMVpDMWtZbVJtWTJaaE5Ea3(--MY--BOGUS--KEY--)lJwYTJGc0NuQnliM0JsY25ScFpYTTZJ
+SHQ5Q25OcFoyNWhk(--MY--BOGUS--KEY--)21saGJEb2dkSEoxWlFwMGVYQmxPaUJVVWtsQlRB
+cDJZV3hwWkVa(--MY--BOGUS--KEY--)jdE1ETXRNRFZVTURjNk5UUTZNVGN1TkRNeVdnbz0KICAgIHNp
+Z25hdHVyZTogQnZrVEJOT2tsbGgyQVVnNC9rbTFQeTVVTG5JTVREdkNJQ2VHWTFVU2R0SEJ3UTho
+SWYrQ3BEdnpu(--MY--BOGUS--KEY--)UR2pzSnNQQjlnSitaSDY4d0RpQllvalNpczFzOFZWamJxWENO
+MGZXQ29HbUxPZ3BucnJXeW5VRWxRa2FDNWExbGxVMnVPWmN0QkZzODNOOVgwenBFVEVtTEpNRjVt
+aDllUmVRelpMQWxqVHVtaTFqbWdM(--MY--BOGUS--KEY--)JGQlJiTkE1QndDL29DVDVYZlV4bUFQcVl4
+U2Q1NHh2RkE4ZW(--MY--BOGUS--KEY--)FHZjc2NWY0clpTMHJOU1Y0SUJuc2ZIZ3dPUDd6U1ljWU1Z
+Z21BKzR2ckl3(--MY--BOGUS--KEY--)ogMQo="
+
+# Enable ssl for artifactory by uncommenting the following line
+#artifactory_ssl: true

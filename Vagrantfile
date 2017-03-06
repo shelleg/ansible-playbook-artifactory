@@ -57,9 +57,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       	case servers["provider"]
       	when "virtualbox"
 					srv.vm.provider :virtualbox do |vb|
-						vb.name = servers["name"]
-						vb.memory = servers["ram"]
-						vb.gui = servers["gui"]
+						vb.name = "#{servers["name"]}"
+						vb.memory = "#{servers["ram"]}"
+						vb.gui = "#{servers["gui"]}"
 					end
 				else
 					puts "Supported provide ATM is Virtualbox ... exiting"

@@ -5,15 +5,19 @@
   ip: 172.16.1.20
   playbook: allin1.yml
   protected: false
+  gui: false
+  provider: virtualbox
 
-#- name: artifactory-allin1-ubuntu
-#  box: bento/ubuntu-16.04
-#  box_version: '2.2.7'
-#  provider: virtualbox
-#  ram: 1024
-#  ip: 172.16.1.21
-#  playbook: allin1-ubuntu.yml
-#  protected: false
+- name: artifactory-allin1-ubuntu
+  box: bento/ubuntu-16.04
+  box_version: '2.2.7'
+  provider: virtualbox
+  ram: 1024
+  ip: 172.16.1.21
+  playbook: allin1-ubuntu.yml
+  protected: false
+  gui: false
+  provider: virtualbox
 
 #- name: artifactory-ubuntu
 #  box: bento/ubuntu-16.04
