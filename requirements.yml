@@ -1,6 +1,7 @@
 ---
 
 - src: ansiblebit.launchpad-ppa-webupd8
+- src: geerlingguy.mysql
 - src: ansiblebit.oracle-java
   name: oracle-java
 - src: shelleg.epel

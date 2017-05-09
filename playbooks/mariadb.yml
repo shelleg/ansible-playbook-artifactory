@@ -1,8 +1,0 @@
----
-
-- hosts: mariadb-centos,mariadb-ubuntu
-  become: yes
-  roles:
-    - role: ansible-role-set-resolver
-    - role: shelleg.epel
-    - role: mariadb

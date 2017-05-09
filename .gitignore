@@ -1,3 +1,4 @@
 .idea/
 .vagrant/
 galaxy-roles
+log/ansible.log

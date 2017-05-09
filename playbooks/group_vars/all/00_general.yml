@@ -1,6 +1,33 @@
 ---
+#
+# Artifactory-mysql related
+#
 
-# Artifactory related
+#mysql_root_password_update: yes
+#mysql_user_password_update: yes
+
+mysql_root_username: root
+mysql_root_password: myCustomPass
+
+mysql_tmp_table_size: "512M"
+mysql_max_heap_table_size: "512M"
+mysql_innodb_log_file_size: "64M"
+mysql_innodb_log_buffer_size: "4M"
+mysql_innodb_log_file_size: "256M"
+
+mysql_databases:
+   - name: artifactory
+
+mysql_users:
+   - name: artifactory
+     host: 127.0.0.1
+     password: root
+     priv: artifactory.*:USAGE
+
+#
+# Artifactory-mariadb related
+#
+
 mariadb_artifactory_optimzed: true
 
 artifactory_database_engine: mariadb
@@ -10,8 +37,8 @@ artifactory_db_pass: root
 artifactory_db_host: localhost
 artifactory_db_port: 3306
 
-db_root_user: root
-db_root_pass: myCustomPass
+db_root_user: "{{ mysql_root_username }}"
+db_root_pass: "{{ mysql_root_password }}"
 
 mariadb_db_properties:
   - db_name: "{{ artifactory_db_name }}"
@@ -22,17 +49,11 @@ mariadb_db_properties:
     db_state: present
 
 # this is a sample not a real lisence ;)
-artifactory_lisence: "cHJvZHVjdHM6CiAgYXJ0aWZhY3Rvcnk6CiA(--MY--BOGUS--KEY--)OiBaWGh3YVhKbGN6b2dNakF4Tnkw
-d05DMHdORlF3TnpvMU5Eb3hOeTQwTXpKYU(--MY--BOGUS--KEY--)XUXdZeTFpWmpnMExUUmpPRFV0
-T0RrMVpDMWtZbVJtWTJaaE5Ea3(--MY--BOGUS--KEY--)lJwYTJGc0NuQnliM0JsY25ScFpYTTZJ
-SHQ5Q25OcFoyNWhk(--MY--BOGUS--KEY--)21saGJEb2dkSEoxWlFwMGVYQmxPaUJVVWtsQlRB
-cDJZV3hwWkVa(--MY--BOGUS--KEY--)jdE1ETXRNRFZVTURjNk5UUTZNVGN1TkRNeVdnbz0KICAgIHNp
-Z25hdHVyZTogQnZrVEJOT2tsbGgyQVVnNC9rbTFQeTVVTG5JTVREdkNJQ2VHWTFVU2R0SEJ3UTho
-SWYrQ3BEdnpu(--MY--BOGUS--KEY--)UR2pzSnNQQjlnSitaSDY4d0RpQllvalNpczFzOFZWamJxWENO
-MGZXQ29HbUxPZ3BucnJXeW5VRWxRa2FDNWExbGxVMnVPWmN0QkZzODNOOVgwenBFVEVtTEpNRjVt
-aDllUmVRelpMQWxqVHVtaTFqbWdM(--MY--BOGUS--KEY--)JGQlJiTkE1QndDL29DVDVYZlV4bUFQcVl4
-U2Q1NHh2RkE4ZW(--MY--BOGUS--KEY--)FHZjc2NWY0clpTMHJOU1Y0SUJuc2ZIZ3dPUDd6U1ljWU1Z
-Z21BKzR2ckl3(--MY--BOGUS--KEY--)ogMQo="
+artifactory_lisence: "cHJvZHVjdHM6CiAgYXJ0aWZhY3Rvcnk6CiAgICBwcm9kdWN0OiBaWGh3YVhKbGN6b2dNakF4Tnkw\nd05pMHdObFF3T1Rvd01Eb3lOaTR4TVRSYUNtbGtPaUEyWmpJeE1qbGpNQzFtWXpWaUxUUmxZelF0\nWW1Ga055MHdaalF6TVdaall6UXdOMlFLYjNkdVpYSTZJRlJwYTJGc0lHOXVJR0pvWVd4bUlHOW1J\nRUZyWVcxaGFRcHdjbTl3WlhKMGFXVnpPaUI3ZlFwemFXZHVZWFIxY21VNklHNTFiR3dLZEhKcFlX\ndzZJSFJ5ZFdVS2RIbHdaVG9nVkZKSlFVd0tkbUZzYVdSR2NtOXRPaUF5TURFM0xUQTFMVEEzVkRB\nNU9qQXdPakkyTGpFeE5Gb0sKICAgIHNpZ25hdHVyZTogUTFhdXM3bmJBSStQOHJ3c3FDdEVETTlB\nemJyYU0yR1pkaUhuVzJpVHl0ZHBhc3NjaUE2UnNGRVA1cFl5eUVkR0FFT1V4cGl2UzVsRTAyTFNC\nWUJkUGJIRStxSGQrYUNkTVRvMGxlUVBBV0tYNFZ2S1hrSkhzT3VBOUhjanlZTHhuOE1lelpRMUov\nSXFjdXgvdXh6QXFjendLTkFLdUt0azYzcFRzNkdBbWRiWGtCVDIySzJUai9JbTVPTlZ0TEtMaitR\nVmZGNEVpZ1BJMVo4ZDd0YjV5c0h4L24raUNISGtsTVU5OEdEdW5YVEdGU1ozd3g1ZjZxVFNraW16\nejNLSFR5NkZqTFFpc05WNldQakUrVVV3Wk1DTzhTUG1pS2ExUWVTWmR0cC9DWktLYXN4R254NFk3\nMmh2YWE2bGRuT2VUVnZ5cXN5cWtVYm5kbEhmL3ZZUU13PT0KdmVyc2lvbjogMQo="
 
 # Enable ssl for artifactory by uncommenting the following line
 #artifactory_ssl: true
+
+#artifactory_custom_filestore_dir: /opt/arti-data
+#purge: true
+#purge_db: true

@@ -8,12 +8,18 @@ require 'yaml'
 VAGRANT_DIR = File.expand_path(File.dirname(__FILE__))
 VAGRANTFILE_API_VERSION = "2"
 Vagrant.require_version ">=1.8.4"
-
+ansible_verbosity="-v"
 # Read YAML file with box details
 servers = YAML.load_file('servers.yml')
-ansible_verbosity = '-vvv'
+
 # Create boxes
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+  # vagrant-cachier plugin
+  if Vagrant.has_plugin?("vagrant-cachier")
+    config.cache.scope = :machine
+  end
+
   # Iterate through entries in YAML file
   servers.each do |servers|
 
@@ -32,9 +38,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     		srv.vm.box_url = servers["box_url"]
     	else
     	  if servers["box_version"] and
-      	  srv.vm.box_version = servers["box_version"]
-      	  srv.vm.box_check_update = false
-        end
+      	    srv.vm.box_version = servers["box_version"]
+      	    srv.vm.box_check_update = false
+          end
     	end
     		srv.vm.box = servers["box"]
 
@@ -59,7 +65,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 					srv.vm.provider :virtualbox do |vb|
 						vb.name = "#{servers["name"]}"
 						vb.memory = "#{servers["ram"]}"
-						vb.gui = "#{servers["gui"]}"
 					end
 				else
 					puts "Supported provide ATM is Virtualbox ... exiting"

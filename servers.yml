@@ -1,50 +1,36 @@
 ---
-- name: artifactory-allin1
+- name: artifactory-centos
   box: centos/7
-  ram: 1024
+  ram: 2048
   ip: 172.16.1.20
-  playbook: allin1.yml
   protected: false
   gui: false
   provider: virtualbox
 
-- name: artifactory-allin1-ubuntu
+- name: artifactory-centos-oss
+  box: centos/7
+  ram: 2048
+  ip: 172.16.1.21
+  protected: false
+  gui: false
+  provider: virtualbox
+
+- name: artifactory-ubuntu
   box: bento/ubuntu-16.04
   box_version: '2.2.7'
   provider: virtualbox
-  ram: 1024
-  ip: 172.16.1.21
-  playbook: allin1-ubuntu.yml
+  ram: 2048
+  ip: 172.16.1.22
   protected: false
   gui: false
   provider: virtualbox
 
-#- name: artifactory-ubuntu
-#  box: bento/ubuntu-16.04
-#  box_version: '2.2.7'
-#  provider: virtualbox
-#  ram: 1024
-#  ip: 172.16.1.11
-#  protected: false
-#
-#- name: artifactory-centos
-#  box: centos/7
-#  ram: 1024
-#  ip: 172.16.1.12
-#  protected: false
-#
-#- name: mariadb-ubuntu
-#  box: bento/ubuntu-16.04
-#  box_version: '2.2.7'
-#  provider: virtualbox
-#  ram: 1024
-#  ip: 172.16.1.9
-#  playbook: mariadb.yml
-#  protected: false
-#
-#- name: mariadb-centos
-#  box: centos/7
-#  ram: 1024
-#  ip: 172.16.1.10
-#  playbook: mariadb.yml
-#  protected: false
+- name: artifactory-ubuntu-oss
+  box: bento/ubuntu-16.04
+  box_version: '2.2.7'
+  provider: virtualbox
+  ram: 2048
+  ip: 172.16.1.23
+  protected: false
+  gui: false
+  provider: virtualbox
